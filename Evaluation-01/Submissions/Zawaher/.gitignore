@@ -1,0 +1,7 @@
+#author : Zawaher Bin Asim
+#Date : 10 Jul 2024
+#This file is the gitignore file 
+
+*.o
+obj
+bin
