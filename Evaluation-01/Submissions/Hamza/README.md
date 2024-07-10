@@ -1,30 +1,30 @@
 # Restoring Division Algorithm Project
 
+### Author: Hamza
+### Date: 10 July 2024
+
+
 ## Project Structure
-- `Sample_files/division.c`: Implement the restoring division algorithm and basic tests
-- `Sample_files/Makefile`: Create build automation
-- `Sample_files/test.tcl`: Develop TCL script for advanced testing
-- `Sample_files/run_tests.sh`: Write shell script for full test automation
+- `division.c`: This file contains the implementation of the restoring division algorithm. It defines functions to perform division operations using the restoring division method, including a main function with basic test cases to verify the algorithm's correctness.
 
-## TODO List
-1. Implement the restoring_division function in division.c
-2. Create some basic test cases in the main function of division.c
-3. Write a Makefile for building and testing
-4. Develop a TCL script for advanced testing
-5. Create a shell script to automate the entire testing process
-6. Use Git for version control throughout development
+- `Makefile`: The Makefile automates the build process for the project. It compiles the `division.c` source file into an executable named `divisionProgram`, facilitating easy compilation and execution of the program.
 
-## Git Usage
-- Copy the Sample_files into your respective Submission Folders
-- Make meaningful commits as you develop
-- Create the Pull Request
+- `test.tcl`: This TCL script is designed for advanced testing of the `divisionProgram`. It interacts with the compiled executable, verifies the correctness of the quotient and remainder calculations, and generates detailed test reports.
+
+
+## Completed Tasks
+1. Implemented the restoring_division function in `division.c`, ensuring accurate division operations using the restoring division method.
+2. Created basic test cases within the main function of `division.c` to validate the correctness of the implemented algorithm.
+3. Developed a Makefile (`Makefile`) to automate the compilation and building of the project, simplifying the process for developers.
+4. Wrote a TCL script (`test.tcl`) for advanced testing, executing comprehensive tests on the `divisionProgram` and generating detailed test reports.
 
 ## Evaluation Criteria
-- Correct implementation of the restoring division algorithm
-- Comprehensive test cases
-- Proper use of TCL for extended testing
-- Functional Makefile
-- Appropriate use of Git
-- Code readability and documentation
+- Correct implementation of the restoring division algorithm, ensuring accurate division results under various scenarios.
+- Comprehensive test cases covering edge cases and typical scenarios, validated through both basic and advanced testing methods.
+- Proper utilization of TCL scripting for extended testing, ensuring thorough verification of the algorithm's functionality.
+- Functional Makefile implementation, providing automated build and compilation processes for the project.
+- Appropriate use of Git for version control, maintaining a clear and organized history of changes and improvements.
+- Code readability and documentation, ensuring that code is well-commented and easy to understand for future maintenance and enhancement.
 
-Good luck!
+Good luck with your project!
+
