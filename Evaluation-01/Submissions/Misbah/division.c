@@ -168,5 +168,6 @@ int main(void){
     printf("\nRemainder = ");
     PrintBits(acc,size);
     printf("which is equivalent to %d",var_dividend%var_divisor);
+    printf("\n");
 }
 
