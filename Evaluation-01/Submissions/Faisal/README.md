@@ -1,30 +1,31 @@
-# Restoring Division Algorithm Project
+# Restoring Division Algorithm in C
 
-## Project Structure
-- `Sample_files/division.c`: Implement the restoring division algorithm and basic tests
-- `Sample_files/Makefile`: Create build automation
-- `Sample_files/test.tcl`: Develop TCL script for advanced testing
-- `Sample_files/run_tests.sh`: Write shell script for full test automation
+This project implements the restoring division algorithm in C Programming. The program performs division using binary arithmetic without using the standard division operator.
 
-## TODO List
-1. Implement the restoring_division function in division.c
-2. Create some basic test cases in the main function of division.c
-3. Write a Makefile for building and testing
-4. Develop a TCL script for advanced testing
-5. Create a shell script to automate the entire testing process
-6. Use Git for version control throughout development
+## Files
 
-## Git Usage
-- Copy the Sample_files into your respective Submission Folders
-- Make meaningful commits as you develop
-- Create the Pull Request
+- `division.c`: The main C program implementing the restoring division algorithm.
+- `Makefile`: The makefile for compiling the program.
+- `test.tcl`: TCL script for testing the program.
 
-## Evaluation Criteria
-- Correct implementation of the restoring division algorithm
-- Comprehensive test cases
-- Proper use of TCL for extended testing
-- Functional Makefile
-- Appropriate use of Git
-- Code readability and documentation
+### Usage
 
-Good luck!
+1. **Compilation**
+
+   To compile the program, run:
+   ```make
+   ```
+
+2. **Execution**
+
+To execute the program, run:
+```./division
+```
+
+3. **Cleaning Up**
+
+To clean up the build files, run:
+
+```make clean
+```
+   
