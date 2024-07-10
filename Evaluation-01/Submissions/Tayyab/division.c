@@ -1,3 +1,11 @@
+/*
+    Name: division.c
+    Author: Muhammad Tayyab
+    Date: 10-7-2024
+    Description: Implements restoring division algorithem for uint32 numbers
+*/
+
+
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -9,7 +17,7 @@ void shiftLeft(uint32_t *reminder, uint32_t *quotient) {
     // Shifts reminder and quotient one place left as a single block
     
     // Store msb of quotient
-    int quotient_msb = GETMSB(*quotient);
+    uint32_t quotient_msb = GETMSB(*quotient);
 
     // Shift reminder and quotient one place left
     *reminder = (*reminder) << 1;
@@ -72,7 +80,7 @@ void restoring_division(uint32_t dividend, uint32_t divisor, uint32_t *quotient,
         // Decrement counter
         numBits--;
 
-    } while (numBits != 0);         // Repeat until numBits becomes zero
+    } while (numBits > 0 );         // Repeat until numBits becomes zero
 
     return ;
 }
@@ -108,42 +116,34 @@ int run_test_case(uint32_t dividend, uint32_t divisor, int printOnPassFlag) {
 
     // Check results
     if ((remainder_correct == remainder_test) && (quotient_correct == quotient_test)) {
-        if (printOnPassFlag) printf("Test passed on %d / %d\n", dividend, divisor);
+        if (printOnPassFlag) printf("Test passed on %u / %u\n", dividend, divisor);
         return 0;
     }
     else {
-        printf("Test failed on %d / %d\n", dividend, divisor);
+        printf("Test failed on %u / %u\n", dividend, divisor);
         return 1;
     }    
 }
 
-int main() {
-    // TODO: Implement multiple test cases
-    // Example:
-    // run_test_case(20, 3);
+int main(int argc, char *argv[]) {
+    // If no arguments passed, runs random tests
+    // If 2 arguments passed, runs test on those and returns status
 
-    // Perform random tests
-    int numTestCases = 1e6;
-    int error;
+    if (argc == 1) { 
+        // If no arguments passed, perform random tests
+        int numTestCases = 1e6;
+        int error;
 
-    for (int i=0; i<numTestCases; i++) {
-        error = run_test_case(rand(), rand(), 0);
-        if (error) break;
+        for (int i=0; i<numTestCases; i++) {
+            error = run_test_case(rand(), rand(), 0);
+            if (error) break;
+        }
+        if (error == 0) {
+            printf("Test passed on all %d random values.\n", numTestCases);
+        }
+        return 0;
     }
-
-    if (error == 0) {
-        printf("Test passed on all %d random values.\n", numTestCases);
+    else if (argc == 3) {
+        return run_test_case(atoi(argv[1]), atoi(argv[2]), 1);
     }
-
-    printf("\n");
-
-    // Perform specific tests
-    run_test_case(10,0,1);
-    run_test_case(0,1026,1);
-    run_test_case(56,1,1);
-    run_test_case(999,10,1);
-
-    printf("\n");
-
-    return 0;
 }
