@@ -24,8 +24,8 @@ void restoring_division(uint32_t dividend, uint32_t divisor, uint32_t *quotient,
 
     if (divisor == 0)
         {
-            printf("Division by zero error!\n");
-            exit(0);
+            printf("Division by zero error!");
+            return;
         }
 
     // step 1: initialization
@@ -70,16 +70,20 @@ void restoring_division(uint32_t dividend, uint32_t divisor, uint32_t *quotient,
     *quotient = Q;
     *remainder = A;
 
+    printf("%ls,%ls",quotient,remainder);
     return;
 }
 
 // TODO: Implement test cases
-void run_test_case(uint32_t dividend, uint32_t divisor,int* count_fails) {
+void run_test_case(uint32_t dividend, uint32_t divisor/*,int* count_fails*/) {
     // TODO: Call restoring_division and verify the results
     uint32_t quotient;
     uint32_t remainder;
 
     restoring_division(dividend,divisor,&quotient,&remainder);
+
+
+/*
     if ( ((dividend/divisor) == quotient) & ((dividend%divisor) == remainder) )
         {
             printf("Test passed!\n");
@@ -89,18 +93,25 @@ void run_test_case(uint32_t dividend, uint32_t divisor,int* count_fails) {
             printf("Test failed!\n, dividend = %d; divisor = %d, quotient = %d, remainder = %d",dividend,divisor,quotient,remainder);
             count_fails++;
         }
+*/
 }
 
-int main() {
+int main(int argc, char* argv[]) {
     // TODO: Implement multiple test cases
     // Example:
-    uint32_t dividend = 11;
-    uint32_t divisor = 3;
+    uint32_t dividend = 2;
+    uint32_t divisor = 1;
     uint32_t quotient = 0;
     uint32_t remainder = 0;
-    int test_count,i;
-    int fail_counter = 0;
+//    int test_count,i;
+//    int fail_counter = 0;
 
+    // taking dividend and divisor as cmd line argument from tcl script
+    sscanf(argv[1], "%d", &dividend);
+    sscanf(argv[2], "%d", &divisor);
+
+    run_test_case(dividend,divisor);
+/*
     restoring_division(dividend,divisor,&quotient,&remainder);
     printf("\nQuotient = %d; Remainder = %d\n",quotient,remainder);
 
@@ -125,7 +136,7 @@ int main() {
         {
             printf("All tests passed!\n");
         }
-
+*/
     // to test division by zero
 //    restoring_division(10,0,&quotient,&remainder);
 
