@@ -1,7 +1,8 @@
 /*
- * File: Evaluation.c
+ * File: division.c
+ * Title: Evaluation 1
  * Author: Misbah Rani
- * Date: 2024-07-10
+ * Date: 2024-07-06
  * Description: This file contains the implementation of tasks of Restoring Divion Algorithm
  *              for the evaluation of basics of C language and usage of productivity tools.
  */
@@ -12,13 +13,15 @@
 #include<stdlib.h>
 #include<math.h>
 #include<time.h>
-
+//Function to print the bits of decimal number give to it as input varibale
 void PrintBits(int* a,int size){
     for(int i=0;i<size;i++){
         printf("%d",a[i]);
     }
-    printf("\t");
+    printf("\n");
 }
+
+//Calculating the number of bits 
 int bits(int a){
     int count = 0;
     while(a!=0){
@@ -27,7 +30,7 @@ int bits(int a){
     }
     return count;
 }
-
+//Converting binary number back to decimal
 int BinaryConversion(int* a, int size){
     int num = 0;
     for(int i = size;i>=0;i--){
@@ -38,7 +41,7 @@ int BinaryConversion(int* a, int size){
     }
     return num;
 }
-
+//Function converting decimal number to pointer using pointer function
 int *DecimalConversion(int a, int size){
     int *binary;
     binary = (int*)malloc((size)*sizeof(int));
@@ -77,14 +80,14 @@ void LeftShift(int* a,int* qq,int size){
         a[j] = a[j+1];
     }
     a[size-1] = qq[0];
-    for(int j = 0;j<5; j++){
+    for(int j = 0;j<size-1; j++){
         qq[j] = qq[j+1];
     }
 }
 
 void Addition(int* a, int* b, int* q, int size){
     int c = 0;
-    for(int i=size;  i>1; i++){
+    for(int i=size;  i<1; i++){
         for(int j=size-1;j>=0;j--){
             if( a[j] == 1 ){
                 if( b[j]==1 && c==1){
@@ -139,8 +142,8 @@ void RestoringDivision(int* a, int* b, int* q,int size){
 
 int main(void){
     srand(time(NULL));
-    unsigned int var_dividend = rand();
-    unsigned int var_divisor = rand();
+    unsigned int var_dividend = 10;
+    unsigned int var_divisor = 7;
     int size = bits(var_dividend);
     int *dividend,*divisor,*divisor2,*acc;
     acc = (int*)malloc(size*sizeof(int));
@@ -155,7 +158,8 @@ int main(void){
     PrintBits(divisor2, size);
 
     printf("\nDividend in Binary: ");
-    PrintBits(acc, size);
+    dividend = DecimalConversion(var_dividend, size);
+    PrintBits(dividend, size);
     printf("\n");
     printf("\nImplementing Restoring Algorithm\n");
     RestoringDivision(acc,divisor2,dividend,size);
@@ -165,4 +169,4 @@ int main(void){
     printf("\nRemainder = ");
     PrintBits(acc,size);
     printf("which is equivalent to %d",var_dividend%var_divisor);
-}
+
