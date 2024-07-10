@@ -1,30 +1,30 @@
 # Restoring Division Algorithm Project
 
-## Project Structure
-- `Sample_files/division.c`: Implement the restoring division algorithm and basic tests
-- `Sample_files/Makefile`: Create build automation
-- `Sample_files/test.tcl`: Develop TCL script for advanced testing
-- `Sample_files/run_tests.sh`: Write shell script for full test automation
+## Overview
+A division algorithm provides a quotient and a remainder when we divide two number. 
 
-## TODO List
-1. Implement the restoring_division function in division.c
-2. Create some basic test cases in the main function of division.c
-3. Write a Makefile for building and testing
-4. Develop a TCL script for advanced testing
-5. Create a shell script to automate the entire testing process
-6. Use Git for version control throughout development
+## Languages Used
+1. C language
+2. tcl script
+3. shell scripting
+4. Makefile
 
-## Git Usage
-- Copy the Sample_files into your respective Submission Folders
-- Make meaningful commits as you develop
-- Create the Pull Request
+## Environment Used
+ * Ubuntu 22.
 
-## Evaluation Criteria
-- Correct implementation of the restoring division algorithm
-- Comprehensive test cases
-- Proper use of TCL for extended testing
-- Functional Makefile
-- Appropriate use of Git
-- Code readability and documentation
+# Getting Started 
 
-Good luck!
+## 1. Clone the Repository
+To use the Restoring Division Algorithm, clone this project using HTTPS:
+
+ ```markdown
+ git clone git@github.com:Fazail333/DDV-Xcelerium.git
+```
+
+## 2. Build Model
+
+To build Booth's Multiplier, use the provided Makefile.
+ ```markdown
+ make division
+ make test 
+```
