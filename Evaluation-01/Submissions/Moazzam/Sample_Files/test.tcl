@@ -33,7 +33,7 @@ puts $output
 
 # Optionally, you can add further checks on the output to verify the test results
 # For example, you can use `string match` or `regexp` to check if the output matches expected results
-if {[string match "Division of Dividend = $dividend and divisor = $divisor is Quotient = $quotient and Remainder = $remainder ." $output]} {
+if {[string match "Division of Dividend = $dividend and divisor = $divisor is Quotient = $quotient and Remainder = $remainder." $output]} {
     puts "Test passed_tcl"
 } else {
     puts "Test failed_tcl"

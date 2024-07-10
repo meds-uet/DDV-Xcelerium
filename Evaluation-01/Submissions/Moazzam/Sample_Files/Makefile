@@ -30,7 +30,7 @@ $(OBJS): $(SRCE)
 
 # - test: Run the basic C testbench
 test : $(TARGET)
-	./$(TARGET)
+	./$(TARGET) 
 # Clean up build files
 clean:
 	rm -f $(OBJS) $(TARGET)

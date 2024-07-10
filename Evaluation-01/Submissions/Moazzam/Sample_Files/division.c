@@ -98,7 +98,7 @@ void run_test_case(uint32_t dividend, uint32_t divisor) {
     //checks
     if((test_qu == quotient) && (test_rm == remainder)){
         printf("Division of Dividend = %d and divisor = %d is Quotient = %d and Remainder = %d.\n", dividend, divisor, quotient, remainder);
-        printf("test pass\n");
+        //printf("test pass\n");
         //test_pass++;
     }
     else{
@@ -125,10 +125,10 @@ int main(int argc, char *argv[]) {
     sscanf(argv[3], "%d", &dr);
    
 
-    if(what_do == 0){
-        printf("Enter:1 (for test on your own inputs) Enter:2 (for test of random numbers) ");
-        scanf("%d", &what_do);
-    }
+    //if(what_do == 3){
+    //    printf("Enter:1 (for test on your own inputs) Enter:2 (for test of random numbers) ");
+    //    scanf("%d", &what_do);
+    //}
 
     if (what_do == 1){
         printf("Enter Dividend:");
@@ -147,6 +147,7 @@ int main(int argc, char *argv[]) {
             test_run--;
             test_pass++;
         }
+        printf("total test pass: %d\n", test_pass);
     }
     else{
         run_test_case(dd, dr);
