@@ -1,9 +1,11 @@
-#include <stdio.h>
-#include <stdint.h>
-#include <stdlib.h>
-#include <time.h>
+/*
+File name: division.c
+Name: M.Ibrahim
+Date: 10 july, 2024
+Description: This file runs Restoring Division Algorithm
+*/
 
-#define BITS_IN_UINT32 32
+#include "division.h"
 
 // TODO: Implement the restoring_division function
 // It should take dividend and divisor as inputs and return quotient and remainder
@@ -37,18 +39,21 @@ void restoring_division(uint32_t dividend, uint32_t divisor, uint32_t *quotient,
     *quotient = 0;
     *remainder = 0;
     
-    // For loop will run till value of n becomes zero
-    for (uint32_t i = n; i > 0; i--) {
-        // Shift A and Q left by 1 bit
+    // Set the value for counter
+    uint32_t i = n;
+
+    // Step 6: If the value of n becomes zero, we get of the loop otherwise we repeat from step 2 
+    while (i > 0){
+        // Step 2: The content of register A and Q is shifted left as if they are a single unit 
         combinedAQ = ((uint64_t)A << 32) | Q;
         combinedAQ = (combinedAQ << 1);
         Q = combinedAQ & 0xFFFFFFFF;
         A = (combinedAQ >> 32) & 0xFFFFFFFF;
 
-        // Subtract M from A
+        // Part 3: Subtract M from A
         A -= M;
 
-        // Check the most significant bit of A
+        // Part 4: Check the most significant bit of A
         if (A & 0x80000000) {
             // MSB of A is 1, so set the LSB of Q to 0 and restore A
             Q &= 0xFFFFFFFE;
@@ -57,9 +62,12 @@ void restoring_division(uint32_t dividend, uint32_t divisor, uint32_t *quotient,
             // MSB of A is 0, so set the LSB of Q to 1
             Q |= 1;
         }
+    
+    // Step 5: decrement n
+        i = i - 1;
     }
 
-    // Final values
+    // Step 7: Finally, the register Q contains the quotient and A contains remainder
     *quotient = Q;
     *remainder = A;
 
@@ -100,22 +108,30 @@ int main() {
     //run_test_case(20, 5);
     
     // Seed the random number generator
-    srand(time(NULL));
+    // srand(time(NULL));
 
-    // Implement multiple test cases
-    for (int i = 0; i < 10; i++) {
-        // Random dividend
-        uint32_t dividend = rand() % 1000;
+    // // Implement multiple test cases
+    // for (int i = 0; i < 10; i++) {
+    //     // Random dividend
+    //     uint32_t dividend = rand() % 1000;
         
-        // Random divisor 
-        uint32_t divisor = rand() % 1000; 
+    //     // Random divisor 
+    //     uint32_t divisor = rand() % 1000; 
 
-        // Ensure we don't divide by zero
-        if (divisor == 0) {
-            divisor = 1; 
-        }
+    //     // Ensure we don't divide by zero
+    //     if (divisor == 0) {
+    //         divisor = 1; 
+    //     }
 
-        run_test_case(dividend, divisor);
-    }
+    //     run_test_case(dividend, divisor);
+    // }
+    run_test_case(122, 6);
+    run_test_case(12, 9);
+    run_test_case(443, 722);
+    run_test_case(122, 222);
+    run_test_case(10000, 2000);
+    // run_test_case(0, 1);
+    // //run_test_case(1000000, 0);
+    // run_test_case(99999999, 100000000);
     return 0;
 }
