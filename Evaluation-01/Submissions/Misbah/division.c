@@ -1,6 +1,5 @@
 /*
- * File: division.c
- * Title: Evaluation 1
+ * File: Evaluation.c
  * Author: Misbah Rani
  * Date: 2024-07-06
  * Description: This file contains the implementation of tasks of Restoring Divion Algorithm
@@ -30,7 +29,7 @@ int bits(int a){
     }
     return count;
 }
-//Converting binary number back to decimal
+
 int BinaryConversion(int* a, int size){
     int num = 0;
     for(int i = size;i>=0;i--){
@@ -41,7 +40,7 @@ int BinaryConversion(int* a, int size){
     }
     return num;
 }
-//Function converting decimal number to pointer using pointer function
+
 int *DecimalConversion(int a, int size){
     int *binary;
     binary = (int*)malloc((size)*sizeof(int));
@@ -169,4 +168,5 @@ int main(void){
     printf("\nRemainder = ");
     PrintBits(acc,size);
     printf("which is equivalent to %d",var_dividend%var_divisor);
+}
 
