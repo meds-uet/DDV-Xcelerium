@@ -1,3 +1,4 @@
 division
 *.Identifier
-.vscode/*.json
+testlog.log
+README copy.md

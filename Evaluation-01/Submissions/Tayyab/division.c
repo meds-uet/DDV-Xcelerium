@@ -144,6 +144,7 @@ int main(int argc, char *argv[]) {
         return 0;
     }
     else if (argc == 3) {
+        // If 2 arguments passed, run test from them
         return run_test_case(atoi(argv[1]), atoi(argv[2]), 1);
     }
 }

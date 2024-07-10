@@ -10,13 +10,13 @@
 # Description: Makefile for comiling and testing restoring division project.
 
 
-all :
+all : division test
 
 division : division.c
 	gcc division.c -o division
 
 test :
-	./division
+	tclsh test.tcl
 
 clean :
 	rm division
