@@ -12,4 +12,4 @@ echo "TODO: Implement full test automation script"
 make all
 #  runs tcl file
 chmod +x test.tcl
-tclsh 
+tclsh test.tcl
